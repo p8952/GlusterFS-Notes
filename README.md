@@ -1,7 +1,5 @@
 # GlusterFS Notes
 
-# Table of Contents
-
 * [Environment](#environment)
 	* [Nodes](#nodes)
 	* [Network](#network)
