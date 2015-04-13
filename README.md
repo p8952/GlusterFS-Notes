@@ -4,26 +4,20 @@
 
 ### Nodes
 
-- Node 01:
-    -  Hostname: gfs01
-    -  RAM: 512MB
-    -  eth0: DHCP
-    -  eth1: 192.168.0.1
-- Node 02:
-    -  Hostname: gfs02
-    -  RAM: 512MB
-    -  eth0: DHCP
-    -  eth1: 192.168.0.2
-- Node 03:
-    -  Hostname: gfs03
-    -  RAM: 512MB
-    -  eth0: DHCP
-    -  eth1: 192.168.0.3
-- Node 04:
-    -  Hostname: gfs04
-    -  RAM: 512MB
-    -  eth0: DHCP
-    -  eth1: 192.168.0.4
+```
+- gfs01
+	- IP: 192.168.0.1
+	- Role: Gluster Server & Client
+- gfs02
+	- IP: 192.168.0.2
+	- Role: Gluster Server & Client
+- gfs03
+	- IP: 192.168.0.3
+	- Role: Gluster Server
+- gfs04
+	- IP: 192.168.0.4
+	- Role: Gluster Server
+```
 
 ### Network
 
