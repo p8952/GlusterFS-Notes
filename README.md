@@ -1,5 +1,19 @@
 # GlusterFS Notes
 
+# Table of Contents
+
+* [Environment](#environment)
+	* [Nodes](#nodes)
+	* [Network](#network)
+* [Concepts](#concepts)
+	* [Vagrant](#vagrant)
+	* [GlusterFS](#glusterfs)
+* [Installing GlusterFS](#installing-glusterfs)
+* [Formatting and Mounting Bricks](#formatting-and-mounting-bricks)
+* [Creating a Distributed Volume](#creating-a-distributed-volume)
+* [Creating a Replicated Volume](#creating-a-replicated-volume)
+* [Creating a Distributed Replicated Volume](#creating-a-distributed-replicated-volume)
+
 ## Environment
 
 ### Nodes
@@ -43,7 +57,9 @@
 
 ## Concepts
 
-## Configuring DNS Entries
+### Vagrant
+
+### GlusterFS
 
 ## Installing GlusterFS
 
