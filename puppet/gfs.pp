@@ -5,6 +5,15 @@ Package {
   allow_virtual => false
 }
 
+Augeas {
+  require => Package['augeas']
+}
+
+package { 'augeas':
+  ensure => 'installed',
+  name   => 'augeas'
+}
+
 ###
 # IP Address
 ###

@@ -12,7 +12,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
 	config.vm.network "private_network", virtualbox__intnet: "gfs", auto_config: false
 
-	config.vm.provision "shell", inline: "yum install -y -q augeas"
 	config.vm.provision "shell", inline: "mkdir -p /etc/facter/facts.d"
 
 	config.vm.define "gfs01" do |gfs01|
