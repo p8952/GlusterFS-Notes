@@ -10,8 +10,7 @@ Augeas {
 }
 
 package { 'augeas':
-  ensure => 'installed',
-  name   => 'augeas'
+  ensure => 'installed'
 }
 
 ###
@@ -60,22 +59,18 @@ exec { 'hostname':
 # Hosts File
 ###
 host { 'gfs01':
-  name => 'gfs01',
   ip   => '192.168.0.1'
 }
 
 host { 'gfs02':
-  name => 'gfs02',
   ip   => '192.168.0.2'
 }
 
 host { 'gfs03':
-  name => 'gfs03',
   ip   => '192.168.0.3'
 }
 
 host { 'gfs04':
-  name => 'gfs04',
   ip   => '192.168.0.4'
 }
 
@@ -92,13 +87,11 @@ exec { 'id_rsa':
 ###
 package { 'glusterfs-server':
   ensure  => 'installed',
-  name    => 'glusterfs-server',
   require => Exec['glusterfs-repo']
 }
 
 package { 'glusterfs-fuse':
   ensure  => 'installed',
-  name    => 'glusterfs-fuse',
   require => Exec['glusterfs-repo']
 }
 
@@ -107,15 +100,26 @@ exec { 'glusterfs-repo':
   creates => '/etc/yum.repos.d/glusterfs-epel.repo'
 }
 
-mount { 'brick-01':
+service { 'glusterd':
+  ensure  => 'running',
+  enable  => true,
+  require => Package['glusterfs-server']
+}
+
+service { 'iptables':
+  ensure => 'stopped',
+  enable => false
+}
+
+mount { 'exports':
   ensure  => 'mounted',
-  name    => '/exports/brick-01',
+  name    => '/exports',
   device  => '/mnt/brick-01.img',
   fstype  => 'xfs',
   options => 'defaults,loop',
   require => [
     Exec['mkfs-brick-01'],
-    File['brick-01']
+    File['exports']
   ]
 }
 
@@ -135,14 +139,7 @@ exec { 'fallocate-brick-01':
 }
 
 package { 'xfsprogs':
-  ensure => 'installed',
-  name   => 'xfsprogs'
-}
-
-file { 'brick-01':
-  ensure  => 'directory',
-  path    => '/exports/brick-01',
-  require => File['exports']
+  ensure => 'installed'
 }
 
 file { 'exports':
